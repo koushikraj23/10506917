@@ -43,7 +43,7 @@ else if(data.pswd==null||data.pswd==""){
   alert("Enter  password");
 }
 else{ this.userdetail =data;
-  console.log(this.userdetail);
+  // console.log(this.userdetail);
     localStorage.setItem(data.email,JSON.stringify(this.userdetail));
     this.router.navigate(['dash']);}
 

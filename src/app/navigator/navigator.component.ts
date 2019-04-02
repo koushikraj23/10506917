@@ -48,7 +48,7 @@ export class NavigatorComponent implements OnInit {
   onClickSubmit(data) {
     
  
-  console.log(data);
+  // console.log(data);
   this.userdetail=JSON.parse(localStorage.getItem(data.email));
   if(this.userdetail==null){
 alert("Email Id not found<br>Please enter vaild ID or login.");

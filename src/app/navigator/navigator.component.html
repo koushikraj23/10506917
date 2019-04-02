@@ -15,7 +15,7 @@
          [ngClass]="{ 'show': navbarOpen }">
         
       <ul class="navbar-nav ml-auto">
-          <li>  <a class="nav-link" href="#">{{userName | uppercase}}</a></li>
+          <li>  <a class="nav-link" >{{userName | uppercase}}</a></li>
         <li><img style="height:30px " src="/assets/user.png"></li>
         <li></li>
         <li></li>
@@ -26,7 +26,7 @@
        
         <li class="nav-item">
             
-<button *ngIf="userName=='Guest' " class="nav-link" (click)="show = !show"> login </button>
+<a *ngIf="userName=='Guest' " style="cursor: pointer;" class="nav-link" (click)="show = !show"> login </a>
 
           </li>
 

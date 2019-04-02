@@ -31,8 +31,8 @@ showDetails: TicketDetails={id:0,adult:0,amount:0,child:0,combo1:0,combo2:0,day:
   }
     toggle($event) {
       this.mDisplay = $event;
-      console.log(this.mDisplay);
-      console.log("recived");
+      // console.log(this.mDisplay);
+      // console.log("recived");
     }
   
     selected(time: string, title: string,day:string) {
@@ -59,7 +59,7 @@ this.sun=true;
 this.cinema.getMovies().subscribe(moviesList => {
     
   this.i = +this.route.snapshot.paramMap.get('id');
-  console.log(this.i);
+  // console.log(this.i);
   this.movies = moviesList;
 this.movie=moviesList[this.i-1];
 

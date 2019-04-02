@@ -22,12 +22,12 @@ export class SeatingComponent implements OnInit,AfterViewInit {
   ngAfterViewInit(): void {
     
     if(this.selected===null){
-      console.log("Not reserved");
+      // console.log("Not reserved");
     }else if(this.selected.seats===null){
-      console.log("Reserved But Seat Not selected");
+      // console.log("Reserved But Seat Not selected");
      } else{
        for(let i of this.seatsBooked) {
-        console.log(i);  
+        // console.log(i);  
      document.querySelector('#'+i).setAttribute('disabled','true');
     }
     }
@@ -55,16 +55,13 @@ this.email=this.session.retrieve("email")==null?null:this.session.retrieve("emai
 
     this.selectedShow=this.dataStorage.storage;
     this.dataStorage.storage=this.selectedShow;
-    console.log(this.selectedShow);
+    // console.log(this.selectedShow);
     
 this.s=this.selectedShow.show+"-"+this. selectedShow.showTime+"-"+this. selectedShow.day;
-console.log(this.s);
+// console.log(this.s);
 
 this.selected= JSON.parse(localStorage.getItem(this.s));
-console.log(this.selected);
-// if(this.selected===null){
-//   console.log("Not reserved");
-// }else
+
  if(this.selected===null){
   console.log("Reserved But Seat Not selected");
  }
@@ -72,10 +69,6 @@ else{
   console.log(this.selected);
   this.seatsBooked=this.selected
 }
-// this.timeArray=[5,0];
-//     console.log(this.timeArray);
-//     this.startTimer();
-
 
    }
    
@@ -96,18 +89,18 @@ clicks:number=0;
   selectSeat($event){
   
  this.b=$event.target.id; 
-   console.log(this.b);
+  //  console.log(this.b);
    
  if(this.seatPre.indexOf(this.b)>-1){
   this.seatPre.splice(this.seatPre.indexOf(this.b), 1);
   this.clicks--;
-console.log(this.seatPre);
+// console.log(this.seatPre);
  }
  else {
    this.clicks++;
   this.seatPre.push(this.b);
   //document.querySelector('#A1').setAttribute("checked","false");
-  console.log(this.seatPre);
+  // console.log(this.seatPre);
 
 
  }
@@ -143,7 +136,7 @@ console.log(this.seatPre);
     }
     
 confirm(){
-console.log(this.user);
+// console.log(this.user);
    this.selectedShow.seats=this.seatPre
    localStorage.setItem(this.selectedShow.show+"-"+this. selectedShow.showTime+"-"+this. selectedShow.day+"-"+ this.user, JSON.stringify(this. selectedShow));
 
@@ -163,12 +156,12 @@ cancel(){
 
     if(this.clicks!=this.selectedShow.seatCount)
     {
-      console.log(this.seatPre);  
+      // console.log(this.seatPre);  
       alert("Please select only "+ this.selectedShow.seatCount+"seats");
 
 
    } else{
-     console.log(this.seatPre);
+    //  console.log(this.seatPre);
     this.selectedShow.seats=this.seatPre;
     this.seat=this.seatPre;
     this.tDisplay =!this.tDisplay;

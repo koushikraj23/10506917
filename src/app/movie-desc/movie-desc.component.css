@@ -7,7 +7,7 @@
 .btn-link {
     color: #5077f2;
     text-decoration: none;
-    width: -webkit-fill-available;
+    width:"-webkit-fill-available";
 }
 .run{
   padding: 6px 10px;
@@ -16,8 +16,9 @@
     /* text-shadow: 0 0 black; */
     box-shadow: 1px 3px 2px 0px black;
 }
-.card-header .btn.btn-link.collapsed{
+.card-header .btn.btn-link{
 width:100%;
+width:"-webkit-fill-available";
 }
 .carousel-item {
     height: 65vh;
