@@ -26,10 +26,28 @@ export class RegisterComponent implements OnInit {
   }
   onClickSubmit(data) {
     
-  this.userdetail =data;
+if(data.name==null||data.name==""){
+
+  alert("Enter name");
+}
+else if(data.phoneNo==null||data.phoneNo==""){
+
+  alert("Enter Phone number");
+} 
+else if(data.email==null||data.email==""){
+
+  alert("Enter  email");
+}
+else if(data.pswd==null||data.pswd==""){
+
+  alert("Enter  password");
+}
+else{ this.userdetail =data;
   console.log(this.userdetail);
     localStorage.setItem(data.email,JSON.stringify(this.userdetail));
-    this.router.navigate(['dash']);
+    this.router.navigate(['dash']);}
+
+ 
       }
 
 }

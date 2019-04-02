@@ -1,0 +1,145 @@
+
+
+  .tPoster{
+
+    width:160px;
+    height:180px
+  }
+.modal {
+  
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color:#FFEB3B;;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color:#002f4e;;
+  color: white;
+}
+.tb{    margin-bottom: 20px;
+    margin-top: 20px;}
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color:  #002f4e;;
+  color: white;
+}
+
+
+
+input[type=checkbox] {
+    display:none;
+    }
+    .illustration {
+  width: 100%;
+}
+    input[type=checkbox] + label
+    {
+    background-image: url("/assets/seatA.svg") ;
+    height: 60px;
+    width: 60px;
+ 
+    }
+    @media all and (min-width: 801px) {
+  
+      input[type=checkbox] + label
+    {
+    background-image: url("/assets/seatA.svg") ;
+    height: 50px;
+    width: 50px;
+ 
+    }
+    input[type=checkbox]:disabled + label
+    {
+    background-image: url("/assets/seatB.svg") !important;
+    height: 50px;
+    width: 50px;
+ 
+    }
+    input[type=checkbox]:checked + label
+    {
+      background-image: url("/assets/seatC.svg");
+    height: 50x;
+    width: 50px;
+    display:inline-block;
+
+    }
+}
+@media all and (max-width: 800px) {
+  input[type=checkbox] + label
+    {
+    background-image: url("/assets/seatA.svg") ;
+    height: 30px;
+    width: 30px;
+ 
+    }
+    input[type=checkbox]:disabled + label
+    {
+    background-image: url("/assets/seatB.svg") !important;
+    height: 30px;
+    width: 30px;
+ 
+    }
+    input[type=checkbox]:checked + label
+    {
+      background-image: url("/assets/seatC.svg");
+    height: 30px;
+    width: 30px;
+    display:inline-block;
+
+    }
+}
+    
+
+ 
+    

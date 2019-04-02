@@ -4,7 +4,8 @@ import { Location } from '@angular/common';
 import { Cinema } from '../cinema.service';
 import { Movie } from '../movie';
 import{ TicketDetails} from '../ticketDetails';
-
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { trailorList } from '../trailors';
 @Component({
   selector: 'app-movie-desc',
   templateUrl: './movie-desc.component.html',
@@ -19,14 +20,15 @@ export class MovieDescComponent implements OnInit {
   movie;
 display;
 mDisplay = false;
-
+safeSrc: SafeResourceUrl;
 showDetails: TicketDetails={id:0,adult:0,amount:0,child:0,combo1:0,combo2:0,day:"",seatCount:0,seats:[],show:"",showTime:"",student:0};
 
   
-  toggleTrailer(){
-    this.display = !this.display;}
-
-
+  toggleTrailer(i:number){
+      this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(trailorList[i]);
+    this.display = !this.display;
+  
+  }
     toggle($event) {
       this.mDisplay = $event;
       console.log(this.mDisplay);
@@ -43,8 +45,10 @@ showDetails: TicketDetails={id:0,adult:0,amount:0,child:0,combo1:0,combo2:0,day:
 
   constructor(  private route: ActivatedRoute,
     private  cinema: Cinema,
-    private location: Location) { 
+    private location: Location,private sanitizer: DomSanitizer) { 
       this.display=false;
+      this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/3EMkxEKKSQI");
+
 this.mon=true;
 this.tue=true;
 this.wed=true;

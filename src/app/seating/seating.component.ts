@@ -1,7 +1,7 @@
 import { Component, OnInit,Input,AfterViewInit } from '@angular/core';
 import {Location} from '@angular/common';
 
-
+import {Router, NavigationExtras} from '@angular/router';
 import { identifierModuleUrl } from '@angular/compiler';
 import {SelectedShow} from '../selectedShow';
 import{DataService} from '../data.service';
@@ -47,7 +47,7 @@ checked=false;
 email=this.session.retrieve("email")==null?null:this.session.retrieve("email");
  //@Input() selectedShow: SelectedShow;
 
-  constructor(private dataStorage:DataService,private session:SessionStorageService,private location: Location) {
+  constructor(private dataStorage:DataService,private router: Router,private session:SessionStorageService,private location: Location) {
 
     this.CurrentTime = new Date().getHours() + ':' + new Date().getMinutes() + ':'+  new Date().getSeconds()
     this.alphabet = ["A", "B", "C", "D", "E"];
@@ -150,8 +150,9 @@ console.log(this.user);
    this. selectedShow.seats= this.selectedShow.seats.concat(this.seatsBooked);
     this.tDisplay=!this.tDisplay;
     localStorage.setItem(this.selectedShow.show+"-"+this. selectedShow.showTime+"-"+this. selectedShow.day, JSON.stringify(this.selectedShow.seats));
-
-    this.dataStorage.storage=this.selectedShow;
+alert("Ticket Booked and successfully sent to your email")
+    //this.dataStorage.storage=this.selectedShow;
+    this.router.navigate(['/dash']);
 }
 
 cancel(){
