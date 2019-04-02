@@ -1,0 +1,90 @@
+
+ <html lang="en">
+    <!-- https://pastebin.com/vVbL8b4d -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          
+    </head>
+     
+<body>
+   
+    <div class="container ">
+       
+        <div style="font-size:20px" class="table-responsive" *ngFor="let movie of movieListing" >  {{movie.title}}- {{movie.year}}<br> CAST:{{movie.cast}}
+
+            <table class='table'>
+                <tr>
+                    <td></td>
+                    <td>Mon</td>
+                    <td>Tue</td>
+                    <td>Wed</td>
+                    <td>Thu</td>
+                    <td>Fri</td>
+                    <td>Sat</td>
+                    <td>Sun</td>
+                </tr>
+              
+                <tbody>
+                  
+         <tr><td> </td><td>  
+           
+            <button class="run" (click)="selected(mon,movie.title,'Monday')" *ngFor="let mon of movie.runningTimes.mon">
+            {{mon}}</button>
+          </td>
+          <td>  
+            
+              <button class="run" (click)="selected(tue,movie.title,'Tuesday')" *ngFor="let tue of movie.runningTimes.tue">
+              {{tue}}</button>
+            </td>
+            <td>  
+              
+                <button class="run" (click)="selected(wed,movie.title,'Wednesday')" *ngFor="let wed of movie.runningTimes.wed">
+                {{wed }}</button>
+              </td>
+              <td>  
+                
+                  <button class="thu" (click)="selected(thu,movie.title,'Thursday')" *ngFor="let thu of movie.runningTimes.thu">
+                  {{thu}}</button>
+                </td>
+                <td>  
+                  
+                    <button class="fri" (click)="selected(fri,movie.title,'Friday')" *ngFor="let fri of movie.runningTimes.fri">
+                    {{fri}}</button>
+                  </td>
+                  <td>  
+                    
+                      <button class="sat" (click)="selected(sat,movie.title,'Saturday')" *ngFor="let sat of movie.runningTimes.sat">
+                      {{sat}}</button>
+                    </td>
+                    <td>  
+                      
+                        <button class="run" (click)="selected(sun,movie.title,'Sunday')" *ngFor="let sun of movie.runningTimes.sun">
+                        {{sun}}</button>
+                      </td>
+        
+        
+        </tr>
+                </tbody>
+         
+         
+                </table>
+        </div>
+
+        <app-booking-list [selectedShow]="showDetails" [mDisplay]="mDisplay" (mDisplayEmitter)="toggle($event)">
+      
+          </app-booking-list>
+
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+       crossorigin="anonymous"></script>
+   
+</body>
+
+

@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+/* html { background: url(https://img.spicinemas.in/resources/images/spi-background-single.jpg) no-repeat fixed top #000; } 
+@media (orientation: portrait) {
+    body {
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+    }
+  } */
+ 

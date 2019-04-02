@@ -1,0 +1,274 @@
+
+<style>
+.card-header {
+
+  background: #5077f2
+}
+
+.btn-link {
+    color: #5077f2;
+    text-decoration: none;
+    width: -webkit-fill-available;
+}
+.run{
+  padding: 6px 10px;
+    margin: 6px;
+    border-radius: 12px;
+    /* text-shadow: 0 0 black; */
+    box-shadow: 1px 3px 2px 0px black;
+}
+.card-header .btn.btn-link.collapsed{
+width:100%;
+}
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+
+  img{
+      width:500px;
+      height:250px !important;
+  }
+  .col-md-8 img{
+      width:600px;
+      height:320px !important;
+  }
+ iframe{
+  width: -webkit-fill-available;
+    height: -webkit-fill-available;
+
+  }
+  .overlay-image {
+ position: relative;
+ width: 100%;
+}
+/* Original image */
+.overlay-image .image {
+ display: block;
+ width: 100%;
+ height: auto;
+}
+/* Original text overlay */
+.overlay-image .text {
+ color: #fff;
+ font-size: 30px;
+ line-height: 1.5em;
+ text-shadow: 2px 2px 2px #000;
+ text-align: center;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 100%;
+}
+.overlay-image .normal {
+ transition: .5s ease;
+}
+.overlay-image:hover .normal {
+ opacity: 0;
+}
+.overlay-image .hover {
+ background-color: rgba(0,0,0,0.5);
+}
+/* New overlay on hover */
+.overlay-image .hover {
+ position: absolute;
+ top: 0;
+ height: 100%;
+ width: 100%;
+ opacity: 0;
+ transition: .5s ease;
+}
+/* New overlay appearance on hover */
+.overlay-image:hover .hover {
+ opacity: 1;
+}
+
+
+
+  
+/* The Modal (background) */
+  .modal {
+  
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 38px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color:#FFEB3B;;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color:#002f4e;;
+    color: white;
+  }
+  
+  .modal-body {padding: 2px 16px; height:350px;}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    background-color:  #002f4e;;
+    color: white;
+  }
+  </style>
+ <!-- Page Content -->
+<div class="container">
+
+  
+    <!-- Portfolio Item Row -->
+    <div class="row">
+  
+        <div class="col-md-8">
+            
+                    <img class="img-fluid" src="/assets/m{{i}}.jpg" alt="">
+        </div>
+    
+      
+        <div class="col-md-4" style="text-align:left;  ">
+            <h3 class="my-3"  >{{movie.title}}</h3>
+            <b>Year:</b>{{movie.year}}<br>
+            <b>Genre:</b>{{movie.genre}}<br>
+            <b>Cast:</b>{{movie.cast}}<br>
+           <b> Director:</b>{{movie.director}}
+    
+            <br>
+            <button class="btn-warning run" (click)="toggle(0)">Trailer</button>
+    
+          </div>
+    
+      </div>
+    <!-- /.row -->
+
+    <!--Show Timings Row -->
+    <h3 class="my-4">Show Timings</h3>
+    <ngb-accordion [closeOthers]="true" activeIds="static-1">
+        <ngb-panel  id="monday" title="Monday">
+          <ng-template class="hell" ngbPanelContent>
+              <button class="run" (click)="selected(mon,movie.title,'Monday')" *ngFor="let mon of movie.runningTimes.mon">
+                  {{mon}}</button>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel  id="tuesday" title="Tuesday">
+            <ng-template ngbPanelContent>
+                <button class="run" (click)="selected(day,movie.title,'Tuesday')" *ngFor="let day of movie.runningTimes.tue">
+                    {{day}}</button>
+            </ng-template>
+          </ngb-panel>
+
+
+
+          <ngb-panel  id="wednesday" title="Wednesday">
+              <ng-template ngbPanelContent>
+                  <button class="run" (click)="selected(day,movie.title,'Wednesday')" *ngFor="let day of movie.runningTimes.wed">
+                      {{day}}</button>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel  id="thursday" title="Thusday">
+                <ng-template ngbPanelContent>
+                    <button class="run" (click)="selected(day,movie.title,'Thursday')" *ngFor="let day of movie.runningTimes.thu">
+                        {{day}}</button>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel  id="friday" title="Friday">
+                  <ng-template ngbPanelContent>
+                      <button class="run" (click)="selected(day,movie.title,'Friday')" *ngFor="let day of movie.runningTimes.fri">
+                          {{day}}</button>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel  id="saturday" title="Saturday">
+                    <ng-template ngbPanelContent>
+                        <button class="run" (click)="selected(day,movie.title,'Saturday')" *ngFor="let day of movie.runningTimes.sat">
+                            {{day}}</button>
+                    </ng-template>
+                  </ngb-panel>
+                  <ngb-panel  id="sunday" title="Sunday">
+                      <ng-template ngbPanelContent>
+                          <button class="run" (click)="selected(day,movie.title,'Sunday')" *ngFor="let day of movie.runningTimes.sun">
+                              {{day}}</button>
+                      </ng-template>
+                    </ngb-panel>
+      </ngb-accordion>
+ 
+ 
+    <!-- /.row -->
+          <!-- /.row -->
+          <app-booking-list [selectedShow]="showDetails" [mDisplay]="mDisplay" (mDisplayEmitter)="toggle($event)">
+      
+            </app-booking-list>
+  </div>
+  
+<div id="myModal" class="modal" [style.display]="display? 'block' : 'none' ">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+     
+       
+     
+      <div class="modal-header">
+         
+        <span class="close trailer" (click) ="toggle()">&times;</span>
+        
+      </div>
+      <div class="modal-body">
+        
+        <iframe  src="https://www.youtube.com/embed/EuOlYPSEzSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   
+      </div>
+      <div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div>
+    </div>
+   
+  </div>
